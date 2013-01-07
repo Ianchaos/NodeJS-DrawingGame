@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Node.js multiplayer drawing game</title>
+		
+		<!-- stylesheet -->
+		<link rel="stylesheet" href="styles.css" />
+		
+		<!-- [make allowances for IE9 users]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![end if] -->
+	</head>
+	
+	<body>
+		<!-- div to hold the mouse pointers, each of which will be a div using .pointer css class -->
+		<div id="cursors">
+			<!-- create mouse pointers here -->
+		</div>
+		
+		<!-- set canvas to fixed dimensions -->
+		<canvas id="paper" width="1900" height="1000">
+			Canvas will only work on certain browsers!
+		</canvas>
+		
+		<hgroup id="instructions">
+			<h1>Draw anywhere on the wall!</h1>
+			<h2>Everyone else's drawings will be shown in real-time.</h2>
+			<h3>If it gets too crowded, just reload the page.</h3>
+		</hgroup>
+		
+		<!-- Javascript bits and bobs -->
+		<!-- server-side Javascript: socket.io.js used for real-time communication channel, intercepts requests and serves it itself so no need to upload file with application -->
+		<script src="/socket.io/socket.io.js"></script>
+		
+		<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		
+		<!-- client-side Javascript: uses socket.io to connect to server and notify of event occurence (message contains mouse coordinates, unique user id and whether drawing or not) -->
+		<script src="script.js"></script>
+	</body>
+</html>
+		
